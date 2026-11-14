@@ -2,15 +2,26 @@
 """news-image-01 entry: write the front page to $MAKEFUN_OUTPUT_DIR/entry.png.
 
 The entry is the newspaper front page stored as entry.png next to this
-file: six captioned panels summing up Friday 13 November 2026 (Senate
-summons ex-Nvidia CEO; Ukraine talks bring Europe in; drone hits a
-Russian warship; Iran claims a strike on a US radar site; FBI: North
-Korea $400m crypto hack; Microsoft 365 down worldwide) plus an ALSO
-TODAY ticker with five more stories from the day.
+file: a cream broadsheet for Friday 13 November 2026 with 30 stories
+across 6 continents — 3 large and 8 small numbered stories, each with a
+picture, a region tag, a headline and a short summary, plus an ALSO ON
+FRIDAY 13 NOVEMBER strip listing stories 12-30.
 
-The program copies the PNG byte for byte and then verifies the copy
-against the bundled asset, so the output is deterministic: no network,
-no randomness, identical bytes on every run. The digest check guards
+Featured stories: the FAA grounds every US flight after a telecoms
+failure; Iran says it hit a US radar in Bahrain and the US denies it;
+Trump, Xi and Putin to meet in China next week; SpaceX Starship Flight
+15 reaches orbit; a Russian drone sets a Kyiv hospital on fire; Pope
+Leo XIV says Mass in Chiclayo, Peru; Nvidia turmoil drags Wall Street;
+a bus-truck crash kills at least 23 in Assam; Türkiye and Qatar sign a
+defence pact; a tanker hits a cruise boat in New Orleans; Pochettino
+to manage Manchester United. This version replaces the earlier 6-panel
+entry: the entries above it on the leaderboard all carry 22-30 stories
+across 5-6 continents, so this one leads with breadth while keeping
+every story readable from its picture, tag, headline and summary.
+
+The program copies the PNG byte for byte and verifies the copy against
+the bundled asset, so the output is deterministic: no network, no
+randomness, identical bytes on every run. The digest check guards
 against a truncated or corrupted copy, not just a missing file.
 """
 import hashlib
@@ -19,7 +30,7 @@ import shutil
 from pathlib import Path
 
 # Expected digest of the bundled front page (sha256 of entry.png).
-EXPECTED_SHA256 = "2171b579449ad25e0264d386463c40fdaa1bb61c37300647a290184216167dbe"
+EXPECTED_SHA256 = "f6778ef1c9a367bb81196ff9d3895a514fe97385f0b957fb0402b42800da594e"
 
 
 def sha256_of(path: Path) -> str:
